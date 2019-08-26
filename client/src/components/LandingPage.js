@@ -32,7 +32,8 @@ import axios from 'axios';
 
     return (
       <div>
-        {forecast && forecast.map((reading) => <p key={reading.id}>{reading.name}: {reading.forecast[0].timestamp}</p>)}
+        <h1>Hi</h1>
+        {/* {forecast && forecast.map((reading) => <p key={reading.id}>{reading.name}: {reading.forecast[0].timestamp}</p>)} */}
       </div>
     )
   }
