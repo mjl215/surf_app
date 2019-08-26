@@ -17,7 +17,9 @@ app.use(express.json());
 // Rotuers
 app.use(locationRouter)
 
-
+app.get('/favicon.ico', (req, res) =>{
+  res.sendStatus(200)
+})
 
 
 app.listen(port, () => {
