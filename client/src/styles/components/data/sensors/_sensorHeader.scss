@@ -1,0 +1,25 @@
+.sensor__header {
+  
+  //layouit
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  //border
+  border: thin solid black;
+  margin: auto;
+
+  //size
+  width: 95%;
+
+  //text
+  font-size: $m-size;
+  font-weight: 2000;
+
+  padding: 0;
+  
+}
+
+.sensor__header__item {
+  width: 13%
+}

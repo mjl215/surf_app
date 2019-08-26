@@ -1,0 +1,52 @@
+.settings__modal__button__container{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 0.5rem 0;
+  border: black solid thin;
+}
+
+.settings__modal__button__column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 12%;
+    margin: 0;
+    padding: 0.5rem 0;
+    text-align: center;
+  
+}
+
+.settings__modal__button__column__small{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 7%;
+  margin: 0;
+  padding: 0.5rem 0;
+  text-align: center;
+
+
+}
+
+.alert__filter__button__selected{
+  background: white;
+  width: 80%;
+  border: thin solid grey;
+  margin: 0.5rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.alert__filter__button__unselected{
+  background: $light_grey;
+  width: 80%;
+  border: thin solid $light_grey;
+  margin: 0.5rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+}

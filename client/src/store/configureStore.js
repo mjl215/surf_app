@@ -1,12 +1,11 @@
 import { createStore, combineReducers } from 'redux';
-// Import Reducers 
+
 
 export default () => {
   const store = createStore(
     combineReducers({
-      //Add in reducers 
-      //expenses: expensesReducer
-    })
+    }),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 
   return store;

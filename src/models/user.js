@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const Alert = require('./alert');
+
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -33,16 +33,11 @@ const userSchema = new mongoose.Schema({
   }]
 });
 
-userSchema.virtual('alerts', {
-  ref: 'Alert',
-  localField: '_id',
-  foreignField: 'owner'
-});
 
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
 
-  const token = jwt.sign({ _id: user._id.toString() }, 'orxagrid', { expiresIn: 60 });
+  const token = jwt.sign({ _id: user._id.toString() }, 'orxagrid', { expiresIn: 60 * 15 });
 
   user.tokens = [...user.tokens, { token }];
   await user.save();
@@ -93,7 +88,6 @@ userSchema.pre('remove', async function (next) {
 });
 
 const User = mongoose.model('User', userSchema);
-
 
 
 module.exports = User;

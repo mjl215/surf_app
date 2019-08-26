@@ -1,0 +1,101 @@
+.alert__table__header{
+  height: 4rem;
+}
+
+.alert__table {
+
+  //border
+  border: thin solid grey;
+  margin: 0 auto;
+
+  //size
+  width: 60%;
+  height: 775px;
+
+  background: white;
+
+  //text
+  font-size: $s-size;
+  font-weight: 500;
+}
+
+.alert__table__row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 4rem;
+  padding: 0.5rem 0;
+  border-bottom: thin solid grey;
+}
+
+.alert__table__row__selected {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 4.2rem;
+  padding: 0.5rem 0;
+  border-bottom: thin solid grey;
+  background: $light_grey;
+}
+
+.alert__table__item {
+  width: 12%;
+  margin: 0;
+  padding: 0.5rem 0 0.5rem 0;
+  text-align: center;
+  border-radius: 0.5rem;
+  
+}
+
+.alert__table__item__small {
+  width: 7%;
+  margin: 0;
+  padding: 0.5rem 0 0.5rem 0;
+  text-align: center;
+}
+
+.alert__table__header__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12%;
+  margin: 0;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.alert__table__header__item__small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7%;
+  margin: 0;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.live--alert{
+  background: red;
+}
+
+.predicted--alert{
+  background: blue;
+}
+
+
+.historic--alert{
+  background: grey;
+}
+
+.benchmark--alert{
+  background: orange;
+}
+
+.alert__table__button{
+  width: 100%;
+  height: 4rem;
+}
+
+.alert__table__header__title{
+  flex-grow: 1;
+}

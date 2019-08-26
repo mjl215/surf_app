@@ -1,14 +1,23 @@
 const express = require('express');
 require('./db/mongoose');
-const userRotuer = require('./routers/user');
-const alertRouter = require('./routers/alert');
+require('./data/magicseaweed_api_call')
+
+//import routers
+const locationRouter= require("./routers/location")
+
+const User = require('./models/user')
+const Location = require('./models/location')
+
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT
 
 app.use(express.json());
-app.use(userRotuer);
-app.use(alertRouter);
+
+// Rotuers
+app.use(locationRouter)
+
+
 
 
 app.listen(port, () => {

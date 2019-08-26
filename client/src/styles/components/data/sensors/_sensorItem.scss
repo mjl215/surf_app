@@ -1,0 +1,24 @@
+.sensor__table {
+  
+  //layouit
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  //border
+  border: thin solid black;
+  margin: auto;
+
+  //size
+  width: 95%;
+
+  //text
+  font-size: $s-size;
+  font-weight: 500;
+  
+}
+
+.sensor__table__item {
+  width: 13%
+}
+
