@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
- class LandingPage extends Component {
+class LandingPage extends Component {
   constructor(props) {
     super(props);
 
@@ -18,7 +18,7 @@ import axios from 'axios';
   async loadForecatData(){
     const forecastData = await axios.get('/location');
 
-    console.log(forecastData);
+    console.log(forecastData.data);
 
     this.setState(() => ({
       locationForecast: forecastData.data
@@ -32,7 +32,7 @@ import axios from 'axios';
 
     return (
       <div>
-
+        <h1>hi</h1>
         {forecast && forecast.map((reading) => <p key={reading.id}>{reading.name}: {reading.forecast[0].timestamp}</p>)}
       </div>
     )
