@@ -19,6 +19,18 @@ const Location = mongoose.model('Location', {
   country: {
     type: String,
   },
+  upcomingSwells:[{
+    swell: {
+      type: Boolean,
+      required: true
+    },
+    days: {
+      type: Number
+    },
+    averageRating: {
+      type: Number
+    }
+  }],
   forecast: [{
     timestamp: {
       type: Number,
