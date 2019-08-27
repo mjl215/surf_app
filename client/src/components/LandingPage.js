@@ -46,7 +46,7 @@ class LandingPage extends Component {
 
     return (
       <div>
-        <h1>Surf Report and Trip Planner </h1>
+        <h1>Surf Report and Trip Planner!! </h1>
         { displayForecast || <h1>no data available</h1> }
         
       </div>
