@@ -8,7 +8,7 @@ const location_ids = [7, 909]
 
 const api_key = process.env.MAGICSEAWEED_API_KEY
 
-var j = schedule.scheduleJob('01 37 17 * * *', function(){
+var j = schedule.scheduleJob('01 45 17 * * *', function(){
 
   location_ids.forEach((id => {
     axios.get(`http://magicseaweed.com/api/${api_key}/forecast/?spot_id=${id}`).then((res) => {
@@ -88,7 +88,7 @@ const getSwells = async (id, forecast) => {
 
   const location = await Location.findOne({ location_id: id})
 
-  if(swell.length >= 3){
+  if(swell.length >= 2){
     const newSwell = {
       swell: true,
       days: swell.length,
