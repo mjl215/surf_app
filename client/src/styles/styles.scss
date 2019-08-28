@@ -1,21 +1,5 @@
 @import './base/settings';
 @import './base/base';
-// LAYOUT
-@import './components/layout/navbar';
 
-// SESNOR PAGE
-@import './components/data/sensors/sensorItem';
-@import './components/data/sensors/sensorHeader';
-@import './components/data/sensors/expandedSensor';
-@import './components/data/sensors/sensorPage';
-@import './components/data/sensors/expandedSensorTable';
-
-// ALERT PAGE
-@import './components/alerts/alertTableItem';
-@import './components/alerts/alertContainer';
-@import './components/alerts/alertMap';
-@import './components/alerts/alertPage';
-@import './components/alerts/alertHeader';
-@import './components/alerts/alertDetails';
-@import './components/alerts/notesModal';
-@import './components/alerts/settingsModal';
+//components
+@import'./components/landingPage.scss'

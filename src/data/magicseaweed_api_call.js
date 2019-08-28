@@ -5,53 +5,49 @@ const axios = require('axios');
 const Location = require('../models/location');
 
 const location_ids = [7, 909]
-
 const api_key = process.env.MAGICSEAWEED_API_KEY
 
-var j = schedule.scheduleJob('01 45 17 * * *', function(){
+var j = schedule.scheduleJob('01 26 21 * * *', function(){
 
   location_ids.forEach((id => {
     axios.get(`http://magicseaweed.com/api/${api_key}/forecast/?spot_id=${id}`).then((res) => {
 
-    const fullForecast = []
+      const fullForecast = []
 
-    res.data.forEach((data) => {
+      res.data.forEach((data) => {
 
-      const {timestamp, localTimestamp, solidRating, swell, wind} = data
+        const {timestamp, localTimestamp, solidRating, swell, wind} = data
 
-      const forecast = {
-        timestamp: timestamp,
-        localTimestamp: localTimestamp,
-        solidRating: solidRating,
-        minBreakingHeight: swell.minBreakingHeight,
-        maxBreakingHeight: swell.maxBreakingHeight,
-        probability: swell.probability,
-        swell: {
-          height: swell.components.combined.height,
-          period: swell.components.combined.period,
-          direction: swell.components.combined.direction,
-          compassDirection: swell.components.combined.compassDirection
-        },
-        wind: {
-          speed: wind.speed,
-          direction: wind.direction,
-          compassDirection: wind.compassDirection
+        const forecast = {
+          timestamp: timestamp,
+          localTimestamp: localTimestamp,
+          solidRating: solidRating,
+          minBreakingHeight: swell.minBreakingHeight,
+          maxBreakingHeight: swell.maxBreakingHeight,
+          probability: swell.probability,
+          swell: {
+            height: swell.components.combined.height,
+            period: swell.components.combined.period,
+            direction: swell.components.combined.direction,
+            compassDirection: swell.components.combined.compassDirection
+          },
+          wind: {
+            speed: wind.speed,
+            direction: wind.direction,
+            compassDirection: wind.compassDirection
+          }
         }
-      }
 
-      fullForecast.push(forecast)
+        fullForecast.push(forecast)
+      })    
+      
+      upLoc(id, fullForecast)
+      
 
-    })    
-    
-    upLoc(id, fullForecast)
-    
-
-        }).catch((e) => {
-          console.log("could not get data: ", e)
-        })
-      }
-    )
-  )
+    }).catch((e) => {
+      console.log("could not get data: ", e)
+    })
+  }))
 });
 
 
@@ -83,7 +79,7 @@ const getSwells = async (id, forecast) => {
   }
   
   const averageRating = (dayRatingArr.reduce((previous, current) => current += previous)) / dayRatingArr.length;
-  const swell = dayRatingArr.filter((rating) => rating >= 4)
+  const swell = dayRatingArr.filter((rating) => rating >= 3)
   
 
   const location = await Location.findOne({ location_id: id})
