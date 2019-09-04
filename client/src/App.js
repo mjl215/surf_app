@@ -3,13 +3,23 @@ import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 
-
 const store = configureStore();
 
-const Jsx = (
+
+const  App = () => {
+
+  return (
   <Provider store={store}>
     <AppRouter />
   </Provider>
-);
+  )
+}
 
-export default Jsx;
+
+// const Jsx = (
+//   <Provider store={store}>
+//     <AppRouter />
+//   </Provider>
+// );
+
+export default App;

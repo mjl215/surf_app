@@ -6,7 +6,8 @@ require('./data/magicseaweed_api_call')
 const path = require('path')
 
 //import routers
-const locationRouter= require("./routers/location")
+const locationRouter= require('./routers/location')
+const userRoute = require('./routers/user')
 
 const User = require('./models/user')
 const Location = require('./models/location')
@@ -18,6 +19,7 @@ const port = process.env.PORT
 app.use(express.json());
 
 app.use(locationRouter)
+app.use(userRoute)
 
 //serve static assets in production
 if(process.env.NODE_ENV === 'production'){
@@ -28,11 +30,6 @@ if(process.env.NODE_ENV === 'production'){
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
 }
-
-
-
-
-
 
 
 app.listen(port, () => {

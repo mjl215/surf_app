@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
-import {setForecastData} from '../../actions/forecastAction';
-const moment = require('moment');
+import { Link } from 'react-router-dom';
+
+import {setForecastData} from '../../actions/ForecastAction';
+import moment from 'moment';
 
 
 
@@ -11,7 +12,7 @@ class LandingPage extends Component {
     super(props);
 
     this.state = {
-      loading: false,
+      loading: true,
       error: null
     }
   }
@@ -23,19 +24,19 @@ class LandingPage extends Component {
   async loadForecatData(){
     
     try {
-      this.setState(() => ({loading: true }));
-      const forecastData = await axios.get('/location')
-      this.props.setForecastData(forecastData.data)
+      
+      this.props.setForecastData()
       this.setState(() => ({loading: false}))
 
     } catch (error) {
       this.setState(() => ({ error, loading: false }))
+      console.log(error)
     }
   }
 
   render(){
 
-    const { loading, error} = this.state
+    const { loading} = this.state
 
     const forecast = this.props.forecastState.forecastData
 
@@ -46,25 +47,31 @@ class LandingPage extends Component {
           <h1>{reading.name}: {moment.unix(reading.forecast[0].timestamp).format("MMM Do H:00")}</h1>
           <h2>{reading.forecast[0].solidRating} stars</h2>
           {reading.upcomingSwells[0].swell ? <h2>Upcoming Swell: {reading.upcomingSwells[0].days} out of the next 5 days with an average rating above 3 stars</h2> : <h2>no upcoming swell</h2>}
+          
         </div> 
       )
     })
 
     if(loading){
       return (
-        <p>loading</p>
+        <div className="landing_page">
+          <p>loading</p>
+        </div>
+          
       )
     }
 
-    if(error){
+    if(this.props.forecastState.error){
       return(
-        <p>Erorr</p>
+        <div className="landing_page">
+          <p>{this.props.forecastState.errorInfo.response.status} : {this.props.forecastState.errorInfo.response.statusText}</p>
+        </div>
+        
       )
     }
 
     return (
       <div className="landing_page">
-        <h1>Surf Report and Trip Planner!! </h1>
         { displayForecast }
       </div>
     )

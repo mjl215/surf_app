@@ -1,0 +1,43 @@
+.navbar {
+  //background: $light-grey;
+  margin-bottom: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__title__container {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.navbar__title {
+  font-size: $m-size;
+  margin: 0;
+  margin-right: 1.5rem; 
+}
+
+.navbar__time {
+  color: $dark-grey;
+  font-size: $s-size;
+  font-weight: 500;
+}
+
+.navbar__list {
+  display: flex;
+  text-decoration: none;
+}
+
+.navbar__list__item {
+  padding: 0.5rem;
+  list-style: none;
+}
+
+.navbar__list__link{
+  font-size: $s-size;
+  text-decoration: none;
+  color: inherit;
+}
+

@@ -37,7 +37,12 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
 
-  const token = jwt.sign({ _id: user._id.toString() }, 'orxagrid', { expiresIn: 60 * 15 });
+  const token = jwt.sign(
+    { 
+    _id: user._id.toString(),
+    name: user.name,
+    email: user.email                        
+    }, process.env.JWT_SECRET, { expiresIn: 60 * 15 });
 
   user.tokens = [...user.tokens, { token }];
   await user.save();
