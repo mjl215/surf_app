@@ -54,7 +54,7 @@ const Navbar = ({authState, logoutUser}) => {
   return (
     <div className="navbar">
       <div className="navbar__title__container">
-        <h1 className="navbar__title">Surf Forecast and Trip Planner</h1>
+        <h1 className="navbar__title">Surf Forecast and Trip Planner Update</h1>
         <h2 className="navbar__time">{time}</h2>
       </div>
       {authState.isAuthenticated ? authLinks : guestLinks}
