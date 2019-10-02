@@ -7,7 +7,7 @@ const Location = require('../models/location');
 const location_ids = [7, 909]
 const api_key = process.env.MAGICSEAWEED_API_KEY
 
-var j = schedule.scheduleJob('01 34 22 * * *', function(){
+var j = schedule.scheduleJob('01 37 22 * * *', function(){
 
   location_ids.forEach((id => {
     axios.get(`http://magicseaweed.com/api/${api_key}/forecast/?spot_id=${id}`).then((res) => {

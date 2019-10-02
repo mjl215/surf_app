@@ -1,7 +1,6 @@
 {
-  "name": "report_app",
+  "name": "surf_app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -31,5 +30,14 @@
     "concurrently": "^4.1.0",
     "env-cmd": "^8.0.2",
     "nodemon": "^1.19.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjl215/surf_app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mjl215/surf_app/issues"
+  },
+  "homepage": "https://github.com/mjl215/surf_app#readme",
+  "description": ""
 }
