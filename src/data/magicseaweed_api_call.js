@@ -1,5 +1,6 @@
 const schedule = require('node-schedule');
 const axios = require('axios');
+const moment = require('moment');
 
 
 const Location = require('../models/location');
@@ -7,13 +8,13 @@ const Location = require('../models/location');
 const location_ids = [7, 909]
 const api_key = process.env.MAGICSEAWEED_API_KEY
 
-var j = schedule.scheduleJob('01 37 22 * * *', function(){
+var j = schedule.scheduleJob('00 11 22 * * *', function(){
 
   location_ids.forEach((id => {
     axios.get(`http://magicseaweed.com/api/${api_key}/forecast/?spot_id=${id}`).then((res) => {
 
       const fullForecast = []
-
+      
       res.data.forEach((data) => {
 
         const {timestamp, localTimestamp, solidRating, swell, wind} = data
@@ -39,7 +40,14 @@ var j = schedule.scheduleJob('01 37 22 * * *', function(){
         }
 
         fullForecast.push(forecast)
-      })    
+      })   
+
+      const dayOne = fullForecast.splice(0,7)
+      console.log(dayOne);
+
+      console.log('--------------------------')
+
+      console.log(fullForecast);
       
       upLoc(id, fullForecast)
       

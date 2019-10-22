@@ -1,0 +1,36 @@
+.forecast__table{
+    width: 80%;
+    margin: auto;
+}
+
+.forecast__table__row {
+    display : flex;
+    flex-direction: row;
+    width: 100%;
+    border: thin black solid;
+}
+
+.forecast__table__item {
+    border: thin black solid;
+    flex-grow: 1;
+    width: 20%;
+}
+
+.forecast__table__item__small {
+    border: thin black solid;
+    width: 12%;
+    flex-grow: 1;
+}
+
+.forecast__table__item__large {
+    border: thin black solid;
+    width: 28%;
+    flex-grow: 1;
+}
+
+.forecast__table__item__text {
+    border: thin black solid;
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}

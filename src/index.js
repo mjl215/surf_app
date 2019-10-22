@@ -21,6 +21,7 @@ app.use(express.json());
 app.use(locationRouter)
 app.use(userRoute)
 
+
 //serve static assets in production
 if(process.env.NODE_ENV === 'production'){
   //set static folder

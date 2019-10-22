@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
+
+import ForecastTable from '../forecast/ForecastTable';
 
 import {setForecastData} from '../../actions/ForecastAction';
 import moment from 'moment';
@@ -72,6 +74,7 @@ class LandingPage extends Component {
 
     return (
       <div className="landing_page">
+        <ForecastTable />
         { displayForecast }
       </div>
     )
