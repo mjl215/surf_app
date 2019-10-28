@@ -42,18 +42,6 @@ class LandingPage extends Component {
 
     const forecast = this.props.forecastState.forecastData
 
-    const displayForecast = forecast  && forecast.map((reading) => {
-      
-      return (
-        <div key={reading._id} >
-          <h1>{reading.name}: {moment.unix(reading.forecast[0].timestamp).format("MMM Do H:00")}</h1>
-          <h2>{reading.forecast[0].solidRating} stars</h2>
-          {reading.upcomingSwells[0].swell ? <h2>Upcoming Swell: {reading.upcomingSwells[0].days} out of the next 5 days with an average rating above 3 stars</h2> : <h2>no upcoming swell</h2>}
-          
-        </div> 
-      )
-    })
-
     if(loading){
       return (
         <div className="landing_page">
@@ -75,7 +63,6 @@ class LandingPage extends Component {
     return (
       <div className="landing_page">
         <ForecastTable />
-        { displayForecast }
       </div>
     )
   }

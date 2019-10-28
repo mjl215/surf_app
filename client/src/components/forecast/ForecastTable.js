@@ -8,10 +8,6 @@ const  ForecastTable = (props) => {
 
     const {error, errorInfo, forecastData} = props.forecastState
 
-    console.log(error);
-    console.log(errorInfo);
-    console.log(forecastData);
-
     const tableRows = forecastData && forecastData.map(data => {
         return <ForecastTableRow data={data} key={data._id}/>
     })
