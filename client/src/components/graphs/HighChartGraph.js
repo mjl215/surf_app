@@ -11,35 +11,36 @@ const HighChartGraph = (props) => {
     const options = {
         chart: {
             type: chartType,
-            backgroundColor: '#E1F6F1'
+            backgroundColor: 'white'
         },
         title: {
           text: title,
           style: {
-              "color" : "blue"
+              "color" : "black"
           }
         },
         xAxis: [
-        {
-            categories: xAxisLabels[0],
-            title: {
-                text: 'Time'
+            {
+                categories: xAxisLabels,
+                title: {
+                    text: 'Time'
+                }
             }
-        },
-        {
-            categories: xAxisLabels[1],
-            offset: 50
-        }
         ],
         yAxis: {
             title: {
                 text: 'Wave Height (Ft)'
-            }
+            },
+            gridLineColor: 'transparent'
         },
         series: [{
           data: data,
-          //color: '#FF0000' 
         }],
+        plotOptions: {
+            series : {
+                pointPadding: -0.15
+            }
+        }
       }
 
     return (
