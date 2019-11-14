@@ -8,6 +8,8 @@ import PostDashboard from '../components/posts/PostDashboard';
 import Navbar from '../components/navigation/Navbar';
 import Login from '../components/auth/Login';
 import Register from '../components/auth/Register'
+import DetailedForecast from '../components/forecast/DetailedForecast';
+
 import PrivateRoute from '../components/common/PrivateRoute';
 
 
@@ -42,6 +44,7 @@ const AppRouter = (props) => {
           <PrivateRoute exact path='/post' component={PostDashboard} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
+          <Route exact path='/forecast/:location' component={DetailedForecast} />
         </Switch>
       </div>
     </Router>

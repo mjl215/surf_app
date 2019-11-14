@@ -16,7 +16,11 @@ export const setForecastData = () => async dispatch => {
       data: error
     })
   }
-  
-  
-  
 };
+
+export const setSelectedForecast = (id) => async dispatch => {
+  dispatch({
+    type: action_types.SET_SELECTED_FORECAST,
+    data: id
+  })
+}

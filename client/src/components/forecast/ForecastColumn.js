@@ -5,9 +5,6 @@ import moment from 'moment';
 
 const ForecastColumn = props => {
 
-    
-    console.log(props);
-
     return (
         <div className="forecast__table__row">
             <p className="forecast__table__item__text">{moment.unix(props.localTimestamp).format("HH:00")}</p> 
