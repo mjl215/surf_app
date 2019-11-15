@@ -11,34 +11,9 @@ import xAxisLabelCreator from '../../utils/graphs/xAxisLabel';
 const DetailedForecast = (props) => {
 
     const selectedData = props.forecast.forecastData.filter((forecast) => forecast._id === props.forecast.selectedForecast);
-    
-    //const waveHeightArr = selectedData[0].forecast.map((data) => data.swell[0].height);
+  
     const waveHeightArr = waveHeightUtil(selectedData[0]);
-
-
     const xAxisLabels = xAxisLabelCreator(selectedData[0]);
-    // const xAxisLabelTime = selectedData[0].forecast.map((data, index) => {
-    //   if(index === 0 || index % 8 === 0){
-    //     return moment.unix(data.localTimestamp ).format("ddd HH:00");
-    //   }
-
-    //   return moment.unix(data.localTimestamp ).format("HH:00");  
-    // });
-
-
-    const today = moment()
-    // const xAxisLabelsDay = [
-    //                         today.format('ddd'), today.format('ddd'), today.format('ddd'), today.format('ddd'), today.format('ddd'),  
-    //                         today.clone().add(1, 'days').format('ddd'), today.clone().add(1, 'days').format('ddd'),today.clone().add(1, 'days').format('ddd'), today.clone().add(1, 'days').format('ddd'), today.clone().add(1, 'days').format('ddd'), today.clone().add(1, 'days').format('ddd'),
-    //                         today.clone().add(2, 'days').format('ddd'), today.clone().add(2, 'days').format('ddd'), today.clone().add(2, 'days').format('ddd'), today.clone().add(2, 'days').format('ddd'), today.clone().add(2, 'days').format('ddd'), today.clone().add(2, 'days').format('ddd'),
-    //                         today.clone().add(3, 'days').format('ddd'), today.clone().add(3, 'days').format('ddd'), today.clone().add(3, 'days').format('ddd'), today.clone().add(3, 'days').format('ddd'), today.clone().add(3, 'days').format('ddd'), today.clone().add(3, 'days').format('ddd'),
-    //                         today.clone().add(4, 'days').format('ddd'), today.clone().add(4, 'days').format('ddd'), today.clone().add(4, 'days').format('ddd'), today.clone().add(4, 'days').format('ddd'), today.clone().add(4, 'days').format('ddd'), today.clone().add(4, 'days').format('ddd')
-    //                         ];
-
-    // const xAxisLabels= [xAxisLabelTime, xAxisLabelsDay];
-    
-
-
     const title = `Surf Forecast for ${selectedData[0].name}`;
     const chartType = 'column';
     const chartData = waveHeightArr;
