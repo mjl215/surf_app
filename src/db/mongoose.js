@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+require('../services/cache');
 
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
